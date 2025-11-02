@@ -1,0 +1,60 @@
+/ -------------------------------------------------------------
+// Problem: 677A - Vanya and Fence
+
+// Link: https://codeforces.com/contest/677/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Vanya and his friends are walking along a fence of height h.
+// Each friend has a height ai. If ai > h, the friend must bend.
+// Normal friend width = 1, bent friend width = 2.
+// Calculate the minimum width of the road so they can walk in a
+// single row without being noticed by the guard.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3 7
+// 4 5 14
+// Output:
+// 4
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Loop through each friend's height:
+// - If height <= h → add 1 to width
+// - If height > h  → add 2 to width
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = number of friends
+// Memory Complexity: O(1) // only a few variables used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+    
+    short n = 0, h = 0;
+    cin >> n >> h;
+ 
+    short h2 = 0, width = 0;
+    while (n--)
+    {
+        cin >> h2;
+        (h2 > h) ? width += 2 : width++;
+    }
+ 
+    cout << width;
+  
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
