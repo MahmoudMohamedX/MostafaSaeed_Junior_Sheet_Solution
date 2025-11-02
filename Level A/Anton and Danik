@@ -1,0 +1,63 @@
+// -------------------------------------------------------------
+// Problem: 734A - Anton and Danik
+
+// Link: https://codeforces.com/contest/734/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Anton and Danik played n games of chess. Each game had a winner,
+// represented by a character: 'A' if Anton won, 'D' if Danik won.
+// Determine who won more games overall, or if they are tied.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 6
+// ADAAAA
+// Output:
+// Anton
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Count the number of wins for Anton and Danik by iterating
+// through the string. Compare the counts:
+// - If Anton > Danik → print "Anton"
+// - If Danik > Anton → print "Danik"
+// - Else → print "Friendship"
+// Type: Implementation / String - Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)     // n = number of games
+// Memory Complexity: O(1)   // only counters used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std; 
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast; 
+    int n = 0, cnt = 0; cin >> n;
+ 
+    string S = "";cin >> S;
+ 
+    for (int i = 0; i < n;++i)
+    {
+        if (S[i] == 'A')  cnt++;
+        else if (S[i] == 'D')  cnt--;
+    }
+
+    if (cnt > 0)
+        cout << "Anton";
+    else if (!cnt)
+        cout << "Friendship";
+    else
+        cout << "Danik";
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
