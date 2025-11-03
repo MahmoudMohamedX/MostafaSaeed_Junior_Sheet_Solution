@@ -1,0 +1,66 @@
+// -------------------------------------------------------------
+// Problem: 263A - Beautiful Matrix
+// Link: https://codeforces.com/contest/263/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// You are given a 5×5 matrix containing 24 zeros and one single 1.
+// You can perform operations where you swap either two neighboring
+// rows or two neighboring columns. The goal is to move the 1
+// to the center position (row 3, column 3).
+// You need to find the minimum number of moves required.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 0 0 0 0 0
+// 0 0 0 0 1
+// 0 0 0 0 0
+// 0 0 0 0 0
+// 0 0 0 0 0
+// Output:
+// 3
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Find the position (i, j) of the element '1' in the 5×5 matrix.
+// The number of moves required to bring it to the center (2, 2)
+// is simply the Manhattan Distance:
+//     moves = |2 - i| + |2 - j|
+// Since each move shifts the 1 by one step either vertically
+// or horizontally, this formula gives the exact minimum steps.
+// Type: Implementation
+// -------------------------------------------------------------
+
+// Time Complexity: O(1)    // only 25 cells to scan (5×5)
+// Memory Complexity: O(1)  // using constant space
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+using namespace std;
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    Fast;
+
+    short n = 0, total = 0;
+
+    for (int i = 0; i < 5; ++i)
+        for (int j = 0; j < 5; ++j)
+        {
+            cin >> n;
+
+            if (n == 1)
+                total = abs(2 - i) + abs(2 - j);
+        }
+
+    cout << total << endl;
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
+}
