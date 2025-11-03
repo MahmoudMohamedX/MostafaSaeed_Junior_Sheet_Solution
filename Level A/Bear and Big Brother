@@ -1,0 +1,92 @@
+// -------------------------------------------------------------
+// Problem: 791A - Bear and Big Brother
+// Link: https://codeforces.com/contest/791/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Limak and Bob are two bears. Limak's weight is 'a' and Bob's
+// weight is 'b'. Each year, Limak’s weight triples (×3) and
+// Bob’s weight doubles (×2). We need to find how many years
+// it will take for Limak’s weight to become strictly greater
+// than Bob’s weight.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 1 1
+// Output:
+// 1
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Start from year = 0 and repeatedly multiply Limak's weight
+// by 3 and Bob's weight by 2 until Limak > Bob.
+// The number of iterations = number of years required.
+// Type: Implementation
+// -------------------------------------------------------------
+
+// Time Complexity: O(log(b/a))   // grows quickly since 3x vs 2x
+// Memory Complexity: O(1)        // only integer variables used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+using namespace std;
+
+int main() {
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+    int a, b;
+    cin >> a >> b;
+
+   
+
+    int years = 0;
+    while (a <= b) {
+        a *= 3;
+        b *= 2;
+        years++;
+    }
+
+    cout << years;
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
+
+// Another solution
+// Approach / Idea:
+// Instead of looping, we can use logarithms to find how many
+// times 3^x * a > 2^x * b. Taking logs gives us:
+// x > log(a/b) / log(2/3)
+// Then we add 1 to handle edge rounding and print the result.
+
+// Type: Implementation
+// -------------------------------------------------------------
+// Time Complexity: O(1)   // Direct mathematical formula
+// Memory Complexity: O(1)
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+using namespace std;
+
+int main()
+{
+    //  ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    Fast;
+
+    double a = 0, b = 0;
+    cin >> a >> b;
+
+    double years = log(a / b) / log(2 / 3.0);
+    years++;
+
+    cout << int(years);
+
+    //  ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    return 0;
+}
