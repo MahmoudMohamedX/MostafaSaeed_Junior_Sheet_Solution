@@ -1,0 +1,63 @@
+// -------------------------------------------------------------
+// Problem: 231A - Team
+// Link: https://codeforces.com/contest/231/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Three friends (Petya, Vasya, and Tonya) are solving n problems.
+// For each problem, each friend indicates whether they are sure
+// about the solution (1 = sure, 0 = not sure).
+// The team will solve a problem if *at least two* of them
+// are sure about its solution.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3
+// 1 1 0
+// 1 1 1
+// 1 0 0
+// Output:
+// 2
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Iterate over all n problems. For each one, read three integers
+// (x, y, z) representing each friend's confidence.
+// If (x + y + z) >= 2 → they will solve it, so increase count.
+// Finally, print the total number of problems solved.
+// Type: bruteforce / greedy 
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)       // loop through all problems once
+// Memory Complexity: O(1)     // only small integer counters
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+using namespace std;
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    Fast;
+
+    short n = 0, total = 0;
+    cin >> n;
+
+    while (n--)
+    {
+        short x = 0, y = 0, z = 0;
+        cin >> x >> y >> z;
+
+        if (x + y + z >= 2) total++;
+    }
+
+    cout << total << endl;
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
+}
