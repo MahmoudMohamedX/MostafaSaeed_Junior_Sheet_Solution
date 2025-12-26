@@ -1,0 +1,80 @@
+// -------------------------------------------------------------
+// Problem: 112A - Petya and Strings
+// Link: https://codeforces.com/contest/112/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Petya was given two strings of equal length consisting of
+// uppercase and lowercase English letters.
+// He wants to compare them lexicographically, BUT without
+// considering letter case (uppercase == lowercase).
+//
+// Comparison rules:
+// - Print "-1" if first string < second string
+// - Print "1"  if first string > second string
+// - Print "0"  if both strings are equal
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// aaaa
+// aaaA
+// Output:
+// 0
+//
+// Input:
+// abs
+// Abz
+// Output:
+// -1
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// 1. Read the two strings.
+// 2. Convert both strings to lowercase character by character.
+// 3. Compare characters at the same index.
+//    - If s1[i] > s2[i] → print 1
+//    - If s1[i] < s2[i] → print -1
+// 4. If all characters are equal → print 0
+//
+// Type: Implementation / Strings
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of the string (≤ 100)
+// Memory Complexity: O(1) // no extra data structures used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+
+using namespace std;
+
+int main() {
+
+    // ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    Fast;
+
+    string s1, s2;
+    cin >> s1 >> s2;
+
+    for (int i = 0; i < s1.size(); i++) {
+        s1[i] = tolower(s1[i]);
+        s2[i] = tolower(s2[i]);
+
+        if (s1[i] > s2[i]) {
+            cout << 1;
+            return 0;
+        }
+        else if (s1[i] < s2[i]) {
+            cout << -1;
+            return 0;
+        }
+    }
+
+    cout << 0;
+
+    // ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    return 0;
+}
