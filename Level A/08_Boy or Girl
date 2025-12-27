@@ -1,0 +1,91 @@
+// -------------------------------------------------------------
+// Problem: 236A - Boy or Girl
+// Link: https://codeforces.com/contest/236/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Our hero wants to determine the gender of a forum user
+// based on the username.
+//
+// Rule:
+// - If the number of DISTINCT characters in the username is ODD
+//   → the user is a male
+// - If it is EVEN → the user is a female
+//
+// Output rules:
+// - Female → print "CHAT WITH HER!"
+// - Male   → print "IGNORE HIM!"
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// wjmzbmr
+// Output:
+// CHAT WITH HER!
+//
+// Explanation:
+// Distinct characters = {w, j, m, z, b, r} → 6 (even)
+//
+// Input:
+// xiaodao
+// Output:
+// IGNORE HIM!
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// 1. Read the username string.
+// 2. Use a boolean array of size 26 to mark used characters.
+// 3. For each character:
+//    - Convert it to an index (char - 'a')
+//    - Mark it as true in the array.
+// 4. Count how many distinct characters exist.
+// 5. If the count is even → female.
+//    If the count is odd  → male.
+// -------------------------------------------------------------
+
+// Type: Implementation / Strings / Frequency
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)     // n = length of username (≤ 100)
+// Memory Complexity: O(1)  // fixed array of size 26
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+
+using namespace std;
+
+int main() {
+
+    // ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    Fast;
+
+    string username;
+    cin >> username;
+
+    // Boolean array to mark distinct letters
+    bool used[26] = {false};
+
+    // Mark characters
+    for (int i = 0; i < username.size(); i++) {
+        used[username[i] - 'a'] = true;
+    }
+
+    // Count distinct characters
+    int distinctCount = 0;
+    for (int i = 0; i < 26; i++) {
+        if (used[i]) distinctCount++;
+    }
+
+    // Decide gender
+    if (distinctCount % 2 == 0) {
+        cout << "CHAT WITH HER!";
+    } else {
+        cout << "IGNORE HIM!";
+    }
+
+    // ﴿إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠
+
+    return 0;
+}
