@@ -1,0 +1,84 @@
+// -------------------------------------------------------------
+// Problem: 344A - Magnets
+//
+// Link: https://codeforces.com/contest/344/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Mike places rectangular magnets in a row.
+// Each magnet has two poles:
+// - "10" (minus-plus)
+// - "01" (plus-minus)
+//
+// If two adjacent magnets have the same orientation,
+// they attract each other and form one group.
+// If their orientations differ, they repel and start a new group.
+//
+// A single magnet alone also forms a group.
+//
+// Task: Count the total number of magnet groups.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 6
+// 10
+// 10
+// 10
+// 01
+// 10
+// 10
+// Output:
+// 3
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// 1. Read the first magnet and start with one group.
+// 2. For each next magnet:
+//    - If its orientation is different from the previous one,
+//      increment the group counter.
+//    - Otherwise, it belongs to the same group.
+// 3. Print the total number of groups.
+//
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+//
+// where n = number of magnets
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+
+    int n;
+    cin >> n;
+
+    string prev, cur;
+    cin >> prev;
+
+    int groups = 1;  // first magnet forms a group
+
+    for (int i = 1; i < n; ++i) {
+        cin >> cur;
+        if (cur != prev) {
+            groups++;
+            prev = cur;
+        }
+    }
+
+    cout << groups << '\n';
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
