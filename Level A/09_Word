@@ -1,0 +1,78 @@
+// -------------------------------------------------------------
+// Problem: 59A - Word
+//
+// Link: https://codeforces.com/contest/59/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Vasya wants to fix the letter case of a word.
+// The word should be either:
+// - all lowercase letters
+// - or all uppercase letters
+// with the minimum number of changes.
+//
+// Rules:
+// - If the word has more uppercase letters → convert all to UPPERCASE
+// - Otherwise (lowercase more OR equal) → convert all to lowercase
+//
+// Examples:
+// HoUse  → house
+// ViP    → VIP
+// maTRIx → matrix
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// 1. Count uppercase and lowercase letters.
+// 2. Compare counts:
+//    - If uppercase > lowercase → convert entire word to uppercase.
+//    - Else → convert entire word to lowercase.
+// 3. Print the modified word.
+//
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+//
+// where n = length of the word
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+
+    string s;
+    cin >> s;
+
+    int upper = 0, lower = 0;
+
+    // Count uppercase and lowercase letters
+    for (char c : s) {
+        if (c >= 'A' && c <= 'Z')
+            upper++;
+        else
+            lower++;
+    }
+
+    // Convert word
+    if (upper > lower) {
+        for (char &c : s)
+            c = toupper(c);
+    } else {
+        for (char &c : s)
+            c = tolower(c);
+    }
+
+    cout << s << '\n';
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
