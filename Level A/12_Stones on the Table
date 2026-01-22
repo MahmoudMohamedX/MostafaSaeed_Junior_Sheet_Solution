@@ -1,0 +1,98 @@
+// -------------------------------------------------------------
+// Problem: 266A - Stones on the Table
+//
+// Link: https://codeforces.com/contest/266/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// There are n stones placed in a row.
+// Each stone is colored either Red (R), Green (G), or Blue (B).
+// The task is to find the minimum number of stones to remove
+// so that no two neighboring stones have the same color.
+//
+// Two stones are considered neighbors if they are next to each
+// other in the row (with no stones between them).
+// -------------------------------------------------------------
+
+// Input:
+// - Integer n (1 ≤ n ≤ 50): number of stones
+// - String s of length n: colors of stones (R, G, B)
+//
+// Output:
+// - One integer: minimum number of stones to remove
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3
+// RRG
+//
+// Output:
+// 1
+// -------------------------------------------------------------
+
+// Explanation of example:
+// Stones: R R G
+// The first two stones have the same color.
+// Remove one of them → R G
+// Now all neighboring stones have different colors.
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Read the first stone color
+// - Compare each next stone with the previous one
+// - If both colors are the same:
+//     * We must remove one stone → increment counter
+// - Otherwise:
+//     * Update the previous stone color
+//
+// Type: Greedy / Implementation
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)
+// Memory Complexity: O(1)
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+ 
+    short cnt = 0, n = 0;  cin >> n;
+ 
+    char c = 'a', c2 = 'b';
+    cin >> c;
+ 
+    while (--n)
+    {
+        cin >> c2;
+ 
+        if (c2 == c)
+            cnt++;
+        else
+            c = c2;
+    }
+ 
+    cout << cnt;
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
