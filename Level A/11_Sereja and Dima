@@ -1,0 +1,110 @@
+// -------------------------------------------------------------
+// Problem: 381A - Sereja and Dima
+//
+// Link: https://codeforces.com/contest/381/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Sereja and Dima play a game with n cards arranged in a row.
+// Each card has a distinct number.
+// Players take turns, Sereja starts first.
+// On each turn, a player takes ONE card:
+// - either the leftmost card
+// - or the rightmost card
+//
+// Both players are greedy:
+// they always choose the card with the larger number.
+//
+// The game ends when all cards are taken.
+// The goal is to calculate the final score of each player.
+// -------------------------------------------------------------
+
+// Input:
+// n (1 ≤ n ≤ 1000)
+// followed by n distinct integers (values on the cards)
+//
+// Output:
+// Two integers:
+// - Sereja's final score
+// - Dima's final score
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 4
+// 4 1 2 10
+//
+// Output:
+// 12 5
+// -------------------------------------------------------------
+
+// Explanation of example:
+// Sereja picks 10
+// Dima picks 4
+// Sereja picks 2
+// Dima picks 1
+// Final scores → Sereja = 12, Dima = 5
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Use a deque to represent the cards
+// - Use a boolean flag to track turns
+// - On each turn:
+//   * Compare front and back of the deque
+//   * Take the larger value
+//   * Add it to the current player's score
+// - Alternate turns until no cards remain
+//
+// Type: Greedy + Implementation
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)
+// Memory Complexity: O(n)
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define Fast ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
+
+int main()
+{
+    // ﴿ إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ ﴾ - يوسف ٩٠
+    Fast;
+
+    int n;
+    cin >> n;
+
+    deque<int> cards(n);
+    for (int i = 0; i < n; ++i)
+        cin >> cards[i];
+
+    int sereja = 0, dima = 0;
+    bool turn = true; // true → Sereja, false → Dima
+
+    while (!cards.empty())
+    {
+        int chosen;
+        if (cards.front() > cards.back())
+        {
+            chosen = cards.front();
+            cards.pop_front();
+        }
+        else
+        {
+            chosen = cards.back();
+            cards.pop_back();
+        }
+
+        if (turn)
+            sereja += chosen;
+        else
+            dima += chosen;
+
+        turn = !turn;
+    }
+
+    cout << sereja << " " << dima;
+
+    return 0;
+}
