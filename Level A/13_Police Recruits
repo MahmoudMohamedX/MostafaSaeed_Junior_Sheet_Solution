@@ -1,0 +1,91 @@
+// -------------------------------------------------------------
+// Problem: 427A - Police Recruits
+// Link: https://codeforces.com/contest/427/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// The police department starts with zero officers.
+// Events happen in chronological order.
+// Each event is either:
+// - A crime (-1)
+// - Or recruiting a group of police officers (positive number)
+//
+// Each police officer can handle only one crime.
+// If a crime occurs and there is no free police officer,
+// the crime will go untreated.
+//
+// The task is to calculate the number of untreated crimes.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3
+// -1 -1 1
+//
+// Output:
+// 2
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Use a counter to track available police officers.
+// Loop through each event:
+// - If the event is -1 (crime):
+//     - If no officers are available → increase untreated crimes
+//     - Otherwise → one officer handles the crime
+// - If the event is positive:
+//     - Add the recruited officers to the available count
+// Type: Implementation / Greedy
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = number of events
+// Memory Complexity: O(1) // constant extra space
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+ 
+    int n = 0;  cin >> n;
+    int cnt = 0, crimes = 0;
+ 
+    short c = 0;
+ 
+    for (int i = 0; i < n;++i)
+    {
+        cin >> c;
+ 
+        if (c == -1)
+        {
+            if (!cnt)
+                crimes++;
+            else
+                cnt--;
+        }
+        else
+            cnt += c;
+    }
+ 
+    cout << crimes;
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
