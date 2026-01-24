@@ -1,0 +1,78 @@
+// -------------------------------------------------------------
+// Problem: 228A - Is your horseshoe on the other hoof?
+//
+// Link: https://codeforces.com/contest/228/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Valera has four horseshoes, each with a color.
+// To be fashionable, all four horseshoes must have
+// different colors.
+// If some horseshoes have the same color, Valera
+// needs to buy new ones.
+// Determine the minimum number of horseshoes
+// Valera needs to buy.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 1 7 3 3
+//
+// Output:
+// 1
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Compare the colors of the four horseshoes.
+// - Count how many duplicates exist.
+// - Each duplicate means one new horseshoe must be bought.
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(1)   // fixed number of comparisons
+// Memory Complexity: O(1) // only a few variables used
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+ 
+    short cnt = 0;
+ 
+    int x = 0, y = 0, z = 0, l = 0;
+    cin >> x >> y >> z >> l;
+ 
+    if (y == x)
+        cnt++;
+    
+    if (z == y || z == x)
+        cnt++;
+ 
+    if (l == z || l == y || l == x)
+        cnt++;
+ 
+    cout << cnt;
+ 
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
