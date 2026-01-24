@@ -1,0 +1,73 @@
+// -------------------------------------------------------------
+// Problem: 431A - Black Square
+//
+// Link: https://codeforces.com/contest/431/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// The game screen is divided into 4 vertical strips.
+// Each second, a black square appears on one strip.
+// Touching strip i costs ai calories.
+// Given a string s where each character represents
+// the strip number (1 to 4) appearing at that second,
+// calculate the total calories spent.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 1 2 3 4
+// 123214
+//
+// Output:
+// 13
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Read the calories cost for each strip into an array.
+// - For each character in the string:
+//   add the corresponding strip cost to the total.
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of the string
+// Memory Complexity: O(1) // fixed-size array
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+ 
+    int arr[4];
+ 
+    cin >> arr[0] >> arr[1] >> arr[2] >> arr[3];
+ 
+    long long cnt = 0;
+    char c = 'a';
+    
+    while (cin >> c)
+        cnt += arr[c - '1'];
+ 
+    cout << cnt;
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
