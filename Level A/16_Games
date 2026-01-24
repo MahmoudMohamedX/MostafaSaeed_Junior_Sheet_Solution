@@ -1,0 +1,63 @@
+// -------------------------------------------------------------
+// Problem: 268A - Games
+//
+// Link: https://codeforces.com/contest/268/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// There are n teams, each with a home uniform color (hi)
+// and a guest uniform color (ai).
+// The championship has n * (n - 1) games.
+// A host team will wear the guest uniform if its home color
+// matches the guest color of the visiting team.
+// Calculate how many times host teams wear guest uniforms.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3
+// 1 2
+// 2 4
+// 3 4
+//
+// Output:
+// 1
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Store home and away colors for all teams.
+// - Count the frequency of each away color.
+// - For each team, add the frequency of teams whose away
+//   color matches its home color.
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)
+// Memory Complexity: O(1) // fixed-size arrays
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+ 
+using namespace std ;
+ 
+int main()
+{
+    short n ;
+    cin>>n ;
+ 
+    long long cnt = 0 ;
+ 
+    int Home[n]={0} , Away[n]={0}  , Freq[101]={0};
+ 
+    for(int i = 0 ; i < n ;++i)
+        cin>>Home[i]>>Away[i];
+ 
+    for(int i = 0 ; i < n ;++i)
+        Freq[Away[i]]++;
+ 
+    for(int i = 0 ; i < n ;++i)
+        cnt += Freq[Home[i]];
+ 
+    cout<<cnt++<<endl;
+}
