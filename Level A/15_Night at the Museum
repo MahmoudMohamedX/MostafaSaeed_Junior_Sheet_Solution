@@ -1,0 +1,56 @@
+// -------------------------------------------------------------
+// Problem: 731A - Night at the Museum
+//
+// Link: https://codeforces.com/contest/731/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Grigoriy uses an embosser with a wheel of lowercase letters (a-z)
+// arranged in a circle. Initially, the pointer is at 'a'.
+// In one move, the wheel can be rotated one step clockwise or
+// counterclockwise.
+// Given a string, calculate the minimum number of rotations
+// required to print the entire string sequentially.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// zeus
+//
+// Output:
+// 18
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Start from letter 'a'.
+// - For each character, calculate the minimum rotations needed
+//   between current letter and target letter.
+// - Add the cost using:
+//   min(clockwise distance, counterclockwise distance)
+// Type: Implementation / Greedy
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of the string
+// Memory Complexity: O(1) // only a few variables used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+ 
+using namespace std ;
+ 
+int main()
+{
+    string S ;
+    cin>>S ;
+ 
+    int cnt = 0 ;
+    cnt += min(abs('a'-S[0]),26-abs('a'-S[0]));
+ 
+    for(int i = 1 ; i < S.size() ;++i)
+    {
+        cnt += min(abs(S[i]-S[i-1]),26-abs(S[i]-S[i-1]));
+    }
+    
+    cout<<cnt<<endl;
+}
