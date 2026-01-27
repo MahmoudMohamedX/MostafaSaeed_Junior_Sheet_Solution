@@ -1,0 +1,103 @@
+// -------------------------------------------------------------
+// Problem: 294A - Shaass and Oskols
+//
+// Link: https://codeforces.com/contest/294/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// There are n horizontal electricity wires, each wire has some birds
+// (oskols) sitting next to each other.
+// When Shaass shoots a bird on wire x at position y:
+// - All birds to the left of the shot bird move to wire (x - 1),
+//   if it exists, otherwise they fly away.
+// - All birds to the right of the shot bird move to wire (x + 1),
+//   if it exists, otherwise they fly away.
+// - The shot bird is removed.
+// The task is to simulate all shots and print the final number of
+// birds on each wire.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 5
+// 10 10 10 10 10
+// 5
+// 2 5
+// 3 13
+// 2 12
+// 1 13
+// 4 6
+//
+// Output:
+// 0
+// 12
+// 5
+// 0
+// 16
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Store the number of birds on each wire in an array.
+// - For each shot:
+//   * Birds to the left of the shot move to the upper wire.
+//   * Birds to the right move to the lower wire.
+//   * Set the current wire to zero.
+// - Finally, print the result for each wire.
+// Type: Implementation / Simulation
+// -------------------------------------------------------------
+
+// Time Complexity: O(n + m)   // n = number of wires, m = number of shots
+// Memory Complexity: O(n)     // array to store wires
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+    
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    Fast;
+ 
+    short n = 0;cin >> n;
+    short arr[102] = { 0 };
+ 
+    for (int i = 1; i <= n;++i)
+        cin >> arr[i];
+ 
+    short m = 0; cin >> m;
+    short r = 0, n2 = 0;
+ 
+    while (m--)
+    {
+        cin >> r >> n2;
+ 
+        if (arr[r] == 0)
+            continue;
+ 
+        arr[r - 1] += n2 - 1;
+        arr[r + 1] += arr[r] - n2;
+        arr[r] = 0;
+            
+    }
+    for (int i = 1; i <= n;++i)
+        cout << arr[i] << "\n";
+ 
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
