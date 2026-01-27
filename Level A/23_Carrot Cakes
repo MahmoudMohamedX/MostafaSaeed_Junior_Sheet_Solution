@@ -1,0 +1,87 @@
+// -------------------------------------------------------------
+// Problem: 799A - Carrot Cakes
+//
+// Link: https://codeforces.com/contest/799/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Arkady needs at least n carrot cakes. One oven bakes k cakes every t minutes
+// (all k cakes are ready exactly after t minutes from start).
+// Arkady can build one more identical oven which takes d minutes to build.
+// While the new oven is being built, only the first oven works; after building,
+// both ovens bake simultaneously. He cannot build more than one oven.
+// Determine whether building the second oven decreases the minimal time to get n cakes.
+// If it does, print "YES", otherwise print "NO".
+//
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 8 6 4 5
+// Output:
+// YES
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Compute the time needed with one oven: ceil(n / k) * t.
+// - Simulate minute by minute up to that time (exclusive):
+//   * At each minute multiple of t, first oven yields k cakes.
+//   * If minute > d and (minute - d) is multiple of t, second oven yields k cakes.
+//   * If accumulated cakes reach n before the one-oven time, answer is YES.
+// - Otherwise NO.
+// Type: Implementation / Simulation
+// -------------------------------------------------------------
+
+// Time Complexity: O(time_one) where time_one = ((n + k - 1) / k) * t
+// Memory Complexity: O(1)
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional>
+ 
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+ 
+using namespace std;
+ 
+ 
+int main()
+{
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    int n, t, k, d;
+    cin >> n >> t >> k >> d;
+ 
+    int time_one = ((n + k - 1) / k) * t;
+ 
+    int baked = 0;
+    for (int minute = 1; minute < time_one; ++minute)
+    {
+ 
+        if (minute % t == 0)
+            baked += k;
+        if (minute > d && (minute - d) % t == 0)
+            baked += k;
+ 
+        if (baked >= n)
+        {
+            cout << "YES\n";
+            return 0;
+        }
+    }
+ 
+    cout << "NO\n";
+    return 0;
+    
+ 
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+ 
+    return 0;
+}
