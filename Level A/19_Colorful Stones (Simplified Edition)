@@ -1,0 +1,65 @@
+// -------------------------------------------------------------
+// Problem: 265A - Colorful Stones (Simplified Edition)
+//
+// Link: https://codeforces.com/contest/265/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// There is a sequence of colorful stones represented by a string s.
+// Each character can be:
+// 'R' → Red, 'G' → Green, 'B' → Blue.
+//
+// Squirrel Liss starts on the first stone (1-based index).
+// You are given another string t which represents instructions.
+// For each instruction:
+// - If the color of the current stone matches the instruction,
+//   Liss moves one stone forward.
+// - Otherwise, she stays in place.
+//
+// The task is to determine the final position (1-based index)
+// after performing all instructions.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// RGB
+// RRR
+// Output:
+// 2
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// - Start from the first stone.
+// - Use a pointer to track the current stone index.
+// - For each instruction in string t:
+//   - If instruction matches the color of the current stone,
+//     move to the next stone.
+// - Count how many times Liss successfully moves forward.
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of instruction string t
+// Memory Complexity: O(1) // constant extra space
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+ 
+using namespace std ;
+ 
+int main()
+{
+  string S1 , S2  ;
+  cin>>S1>>S2  ;
+ 
+  int cnt = 1 , j = 0 ;
+ 
+  for(int i = 0 ; i < S2.size();++i)
+  {
+      if(S2[i]==S1[j])
+      {
+          j++;
+          cnt++;
+      }
+  }
+  cout<<cnt<<endl; 
+}
