@@ -1,0 +1,83 @@
+// -------------------------------------------------------------
+// Problem: 339A - Helpful Maths
+// Link: https://codeforces.com/contest/339/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Xenia has a sum of numbers (1, 2, 3) written with '+' signs.
+// She can only calculate sums if the numbers are in non-decreasing order.
+// Rearrange the summands so that she can calculate the sum easily.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 3+2+1
+// Output:
+// 1+2+3
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Count the number of 1s, 2s, and 3s in the string.
+// Then print them in order: 1s first, then 2s, then 3s, separated by '+'.
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of the input string
+// Memory Complexity: O(1) // only a few counters used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+
+using namespace std;
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    Fast;
+
+    string S;
+    cin >> S;
+
+    short cnt1 = 0, cnt2 = 0, cnt3 = 0;
+
+    for(int i = 0; i < S.size(); ++i)
+    {
+        if(S[i] == '1')
+            cnt1++;
+        else if(S[i] == '2')
+            cnt2++;
+        else if(S[i] == '3')
+            cnt3++;
+    }
+
+    if(cnt1 > 0)
+    {
+        for(int i = 0; i < cnt1 - 1; ++i)
+            cout << "1+";
+        cout << 1;
+    }
+    if(cnt2 > 0)
+    {
+        if(cnt1 > 0)
+            cout << "+";
+        for(int i = 0; i < cnt2 - 1; ++i)
+            cout << "2+";
+        cout << 2;
+    }
+    if(cnt3 > 0)
+    {
+        if(cnt2 > 0 || cnt1 > 0)
+            cout << "+";
+        for(int i = 0; i < cnt3 - 1; ++i)
+            cout << "3+";
+        cout << 3;
+    }
+
+    cout << endl;
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
