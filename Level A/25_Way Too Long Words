@@ -1,0 +1,68 @@
+// -------------------------------------------------------------
+// Problem: 71A - Way Too Long Words
+// Link: https://codeforces.com/contest/71/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Some words are too long (length > 10). Replace each too long word
+// with an abbreviation: first letter + number of letters between
+// first and last + last letter. Words not too long remain unchanged.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 4
+// word
+// localization
+// internationalization
+// pneumonoultramicroscopicsilicovolcanoconiosis
+// Output:
+// word
+// l10n
+// i18n
+// p43s
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Loop through each word:
+// - If length > 10 → print abbreviation (first letter + length-2 + last letter)
+// - Else → print the word as is
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n * m)   // n = number of words, m = average length of word
+// Memory Complexity: O(1)     // only a few variables used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+#define Fast ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+
+using namespace std;
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    Fast;
+
+    int NumberOfTestCases;
+    cin >> NumberOfTestCases;
+
+    while(NumberOfTestCases--)
+    {
+        string word;
+        cin >> word;
+        if(word.size() > 10)
+        {
+            cout << word[0] << word.size() - 2 << word[word.size() - 1] << endl;
+        }
+        else
+        {
+            cout << word << endl;
+        }
+    }
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
