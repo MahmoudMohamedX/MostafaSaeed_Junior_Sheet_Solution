@@ -1,0 +1,86 @@
+// -------------------------------------------------------------
+// Problem: 686A - Free Ice Cream
+// Link: https://codeforces.com/contest/686/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Kay and Gerda have x ice cream packs at the start of the day.
+// A queue forms: each person either brings ice cream (+) or wants ice cream (-).
+// If a carrier (+ di) comes → they take all di packs.
+// If a child (- di) comes → they get di packs if enough are available, 
+// otherwise they leave in distress.
+// Calculate ice cream packs left and number of distressed kids.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// 5 7
+// + 5
+// - 10
+// - 20
+// + 40
+// - 20
+// Output:
+// 22 1
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Loop through each person in the queue:
+// - If '+', add ice cream packs to total
+// - If '-', check if enough ice cream packs exist
+//   - If yes, give packs
+//   - If no, increment distressed kids counter
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = number of people in the queue
+// Memory Complexity: O(1) // only a few variables used
+// -------------------------------------------------------------
+
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <cmath>
+#include <functional
+
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+
+using namespace std;
+
+int main()
+{
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    Fast;
+
+    long long n = 0, q = 0;
+    cin >> n >> q;
+
+    long long cnt = 0, d = 0;
+    char c = d;
+
+    while (n--)
+    {
+        cin >> c >> d;
+
+        if (c == '+')
+            q += d;
+        else
+        {
+            if (q >= d)
+                q -= d;
+            else
+                cnt++;
+        }
+    }
+
+    cout << q << " " << cnt;
+
+    //  إِنَّهُۥ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ ٱللَّهَ لَا يُضِيعُ أَجْرَ ٱلْمُحْسِنِينَ﴾ - يوسف ٩٠﴿
+
+    return 0;
+}
