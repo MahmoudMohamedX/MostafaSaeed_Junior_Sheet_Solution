@@ -1,0 +1,58 @@
+// -------------------------------------------------------------
+// Problem: 443A - Anton and Letters
+// Link: https://codeforces.com/contest/443/problem/A
+// -------------------------------------------------------------
+
+// Description:
+// Anton wrote all letters from a set in one line, separated by commas.
+// Sometimes he may forget a letter or repeat it. Count the total
+// number of distinct letters in his set.
+// -------------------------------------------------------------
+
+// Example:
+// Input:
+// {a, b, c}
+// Output:
+// 3
+// -------------------------------------------------------------
+
+// Approach / Idea:
+// Loop through the input string and mark the letters in a boolean array.
+// Finally, count the number of letters marked as present.
+// Type: Implementation / Ad-hoc
+// -------------------------------------------------------------
+
+// Time Complexity: O(n)   // n = length of input string
+// Memory Complexity: O(1) // only fixed-size boolean array used
+// -------------------------------------------------------------
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define Fast ios::sync_with_stdio(false);cin.tie(nullptr);cout.tie(nullptr);
+
+int main()
+{
+    Fast;
+
+    bool Freq[26] = {0};
+
+    string S;
+    getline(cin, S);
+
+    for(int i = 0; i < S.size(); ++i)
+    {
+        if(S[i] >= 'a' && S[i] <= 'z')
+        {
+            Freq[S[i] - 'a'] = true;
+        }
+    }
+
+    int cnt = 0;
+    for(int i = 0; i < 26; ++i)
+        cnt += Freq[i];
+
+    cout << cnt << endl;
+
+    return 0;
+}
